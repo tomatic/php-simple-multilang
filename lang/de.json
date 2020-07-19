@@ -1,10 +1,11 @@
 {
   "general": {
     "text1": "Lorem ipsum...",
-    "text2": "dolor sit amet"
+    "text2": "dolor sit amet",
     "group1": {
       "text1": "Was auch immer..."
-    }
+    },
+    "with_variables": "Das ist statischer Text. {{replaceme}} {{replaceme2}}"
   },
   "more": {
     "another": "Testen 123"
