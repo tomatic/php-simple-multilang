@@ -16,7 +16,7 @@ class Lang {
     $this->strings = json_decode($_strings, true);
   }
 
-  public function t($selector) {
+  public function t($selector, ...$args) {
     try {
       $s = explode(".", $selector);
       for($i = 0; $i < count($s); $i++) {
@@ -39,6 +39,13 @@ class Lang {
     } catch (\Throwable $th) {
       $el = "$selector not found for locale $this->locale";
     }
+    // Process $args for any variable replacements
+    if(count($args)) {
+      foreach($args as $arg) {
+        $argarr = explode(":", $arg);
+        $el = str_replace("{{" . $argarr[0] . "}}", $argarr[1], $el);
+      }
+    }    
     return $el;
   }
 }
