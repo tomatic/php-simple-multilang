@@ -42,7 +42,7 @@ class Lang {
     // Process $args for any variable replacements
     if(count($args)) {
       foreach($args as $arg) {
-        $argarr = explode(":", $arg);
+        $argarr = explode(":", $arg, 2);
         $el = str_replace("{{" . $argarr[0] . "}}", $argarr[1], $el);
       }
     }    
